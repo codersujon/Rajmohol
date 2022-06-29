@@ -10,7 +10,6 @@ class Menu extends Component{
     }
 
     onDishSelect = dish=>{
-        console.log(dish);
         this.setState({ selectedDish: dish })
     }
 
@@ -28,11 +27,20 @@ class Menu extends Component{
                 />
             )
         })
+
+        let dishDetail = null;
+        if (this.state.selectedDish != null) {
+            dishDetail =  <DishDetail  dish={this.state.selectedDish} />
+        } 
+
         return(
             <div className="container">
                 <div className="row">
                     <div className="col-xl-6">
                         {menu}
+                    </div>
+                    <div className="col-xl-6">
+                        {dishDetail}
                     </div>
                 </div>
             </div>

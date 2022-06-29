@@ -5,13 +5,16 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, CardSubti
 function MenuItem(props) {
     return (
         <div>
-            <Card style={{margin: "10px"}}>
+            <Card
+                style={{ margin: "10px", cursor: "pointer" }}
+                onClick={() => props.dishSelect(props.dish)}
+            >
                 <CardBody>
-                    <CardImg width="100%" alt={props.dish.name} src={props.dish.image} style={{opacity: "0.5"}} >
+                    <CardImg width="100%" alt={props.dish.name} src={props.dish.image} style={{ opacity: "0.5" }} >
                     </CardImg>
                     <CardImgOverlay>
-                        <CardTitle style={{cursor: "pointer"}} onClick={()=> props.dishSelect(props.dish)}>{props.dish.name}</CardTitle>
-                    </CardImgOverlay> 
+                        <CardTitle>{props.dish.name}</CardTitle>
+                    </CardImgOverlay>
                 </CardBody>
             </Card>
         </div>
